@@ -1,0 +1,131 @@
+.wrapper{
+    padding: 0 15px;
+    
+    .content{
+        background-color: #FFF;
+        margin-bottom: 30px;
+        border: 1px solid #FFF;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+
+        .img{
+            display: block;
+            position: relative;
+            img{
+                width: 100%;
+                overflow: hidden;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+
+            .popup{
+                z-index: 10;
+                height: 51px;
+                background: none repeat scroll 0 0 rgba(121, 117, 101, 0.8);
+                bottom: -100px;
+                color: #fff!important;
+                font-size: 13px;
+                left: 0;
+                padding: 6px 12px;
+                position: absolute;
+                transition: bottom 0.5s ease 0s;
+                width: 100%;
+                display: none;
+                align-items: center;
+                justify-content: space-around;
+
+                a{
+                    text-decoration: none;
+                    color: white;
+                    font-style: italic;
+                    font-size: 14px;
+
+                    &:last-child{
+                        display: inline-block;
+                        padding: 6px;
+                        background: #252525;
+                        color: #FFF;
+                        -webkit-border-radius: 3px;
+                        -moz-border-radius: 3px;
+                        border-radius: 3px;
+                        font-style: normal;
+                        &:hover{
+                            background-color: #543cbb;
+                        }
+                    }
+                }
+                
+            }
+
+        }
+
+        h2{
+            height: 35px;
+            font-size: 14px;
+            margin: 10px;
+        }
+        .price{
+            position: relative;
+            padding: 0 10px 5px;
+            display: flex;
+            flex-direction: column;
+            del{
+                color: #888;
+                font-size: 14px;
+            }
+            span{
+                font-size: 20px;
+                color: #ed0000;
+                font-weight: 700;
+            }
+
+            .sale{
+                background: url('https://theme.hstatic.net/1000026716/1000440777/14/icon-saleoff.png') no-repeat scroll center center transparent;
+                position: absolute;
+                width: 48px;
+                height: 51px;
+                bottom: 8px;
+                right: 22px;
+                text-align: center;
+                vertical-align: middle;
+                color: #180733;
+                font-size: 12px;
+                padding-top: 14px;
+            }
+        }
+        
+
+        &:hover{
+            border: 1px solid #F1DF8D;
+            box-shadow: none;
+        }
+    }
+
+    
+    &:hover:not(:active) .popup {
+        /* Thêm delay cho transition để class popup mất từ từ */
+        transition-delay: 0.5s;
+        bottom: -50px; /* Dịch từ trên xuống */
+      }
+    
+}
+
+.content:hover .img .popup {
+    display: flex;
+    bottom: 0;
+    animation: showPopup 1s forwards;
+    transition: bottom 0.5s ease 0;
+  }
+
+  @keyframes showPopup {
+    from {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+
