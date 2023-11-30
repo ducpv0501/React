@@ -14,7 +14,9 @@ function Cart() {
     const cartValues = useSelector( (state) => state.addCartItem.productCart)
     const cartTotal = useSelector( (state) => state.addCartItem.totalPrice)
 
-    
+    const formatPrice = (price) => {
+        return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
+      };
 
     console.log(Array.isArray(cartValues));
 
@@ -38,11 +40,11 @@ function Cart() {
                             </thead>
                             <tbody>
                                 {cartValues.map((cartValue) => (
-                                    <CartList name={cartValue.productName} url={cartValue.productImg} price={cartValue.price} />
+                                    <CartList name={cartValue.productName} url={cartValue.productImg} price={formatPrice(cartValue.price)} />
                                 ))}
                                 <tr>
                                     <td className={cx('total')} colSpan={4}>Tổng tiền:</td>
-                                    <td>{cartTotal}</td>
+                                    <td>{formatPrice(cartTotal)}</td>
                                 </tr>
                             </tbody>
                         </table>

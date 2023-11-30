@@ -12,7 +12,9 @@ function CardItem({value}) {
   const price = value.price
 
   const disCount = Math.floor(((oldPrice - price) / oldPrice) *100)
-
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
+  };
   return (
     <div className={cx('wrapper')}>
         <div className={cx('content')}>
@@ -25,9 +27,8 @@ function CardItem({value}) {
             </Link>
             <h2>{value.name}</h2>
             <div className={cx('price')}>
-                <del>{value.oldPrice} ₫</del>
-                <span>{value.price} ₫</span>
-
+                <del>{ formatPrice(value.oldPrice)} </del>
+                <span>{formatPrice(value.price)} </span>
                 <div className={cx('sale')}>
                   -
                   {disCount}

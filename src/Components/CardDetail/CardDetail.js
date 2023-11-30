@@ -46,7 +46,9 @@ function CardDetail() {
 
     console.log(add);
   }
-
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
+  };
   return (
         <div className={cx('wrapper')}>
             <div className={cx('top')}>
@@ -90,13 +92,14 @@ function CardDetail() {
                 <form>
                   <p>
                     <span>Giá cũ: </span>
-                    <del>{dataLaptop.oldPrice} đ</del>
+                    <del>{formatPrice(dataLaptop.price)}</del>
                   </p>
+                  
                   <p>
                     <span>Giá mới: </span>
-                    <span className={cx('price')}>{dataLaptop.price} đ</span>
+                    <span className={cx('price','formatted-price')}>{formatPrice(dataLaptop.price)}</span>
                   </p>
-                  <button onClick={handleAddCart}>Đặt hàng</button>
+                  <button className={cx('btn-order')} onClick={handleAddCart}>Đặt hàng</button>
                 </form>
               </div>
             </div>

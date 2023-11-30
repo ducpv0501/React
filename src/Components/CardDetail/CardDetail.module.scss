@@ -83,8 +83,19 @@
             color: #e61010;
             font-weight: 700;
         }
+        
     }
-
+    .btn-order{
+        width: 300px;
+        height: 50px;
+        background: #E30019;
+        color: #fff;
+        border-radius: 12px;
+        border: none;
+        font-size: 22px;
+        font-weight: 700;
+        cursor: pointer;
+    }
 
     .bottom{
         width: 100%;
@@ -148,6 +159,7 @@
         }
 
     }
+   
 }
 
 
